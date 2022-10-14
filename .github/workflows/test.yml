@@ -67,7 +67,7 @@ jobs:
 
           # 调整SN和MAC,最好使用 actions secrets 引入,SN应该是固定值不应该每次生成
           sn=`./redpill_tool_chain.sh sn ${{matrix.platform}} | grep 'Serial Number' | awk '{print $3}'`
-          sed -i -e "s/1780PDN023074/${sn:="${{secrets.SN}}"}/g" -e 's/XXYYXXYYXXYY/${{secrets.MAC1}}/g' ${{matrix.platform}}_user_config.json
+          sed -i -e "s/1780PDN023074/${{secrets.SN}}/g" -e 's/XXYYXXYYXXYY/${{secrets.MAC1}}/g' ${{matrix.platform}}_user_config.json
 
           # 添加第二张网卡mac并设置网卡数量
           sed -i -e 's/${{secrets.MAC1}}"/&,\n\t"mac2": "${{secrets.MAC2}}",\n\t"netif_num": 2/' ${{matrix.platform}}_user_config.json
