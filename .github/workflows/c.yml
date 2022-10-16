@@ -1,4 +1,4 @@
-name: 构建
+name: 构建DS918+引导
 
 on:
   workflow_dispatch:
@@ -14,6 +14,7 @@ on:
       - "docker/**"
       - "**.sh"
       - "**.json"
+      - ".github/workflows/c.yml"
   watch:
     types: started
 
