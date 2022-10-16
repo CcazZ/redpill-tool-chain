@@ -14,6 +14,7 @@ on:
       - "docker/**"
       - "**.sh"
       - "**.json"
+      - ".github/workflows/d.yml"
   watch:
     types: started
 
