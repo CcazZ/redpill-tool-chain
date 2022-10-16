@@ -1,4 +1,4 @@
-name: 构建DS918+引导
+name: 构建蜗牛C DS918+引导
 
 on:
   workflow_dispatch:
