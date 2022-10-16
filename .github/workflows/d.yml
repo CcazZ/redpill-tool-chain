@@ -68,7 +68,7 @@ jobs:
           # 调整SN和MAC,最好使用 actions secrets 引入,SN应该是固定值不应该每次生成
           sn=`./redpill_tool_chain.sh sn ${{matrix.platform}} | grep 'Serial Number' | awk '{print $3}'`
           sed -i -e "s/1234XXX123/"${{secrets.DSN}}"/g" -e 's/XXYYXXYYXXYY/${{secrets.DMAC1}}/g' ${{matrix.platform}}_user_config.json
-
+          sed -i -e 's/${{secrets.DMAC1}}"/&,\n\t"DisldkMap": 00 ,\n\t"SataPortMap": 1,\n\t"SasldxMap": 0/' ${{matrix.platform}}_user_config.json
           # 调整synoinfo
           sed -i -e 's/"synoinfo": {},/"synoinfo": {\n\t"maxlanport": "2"\n    },/' ${{matrix.platform}}_user_config.json
 
