@@ -1,4 +1,4 @@
-name: 构建蜗牛D DS3615xs引导
+name: 构建蜗牛D DS3617xs引导
 
 on:
   workflow_dispatch:
